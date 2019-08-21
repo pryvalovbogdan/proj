@@ -90,10 +90,14 @@ class AirConditioner {
 			return this._status ? "On" : "Off";
 		}
 		nextMode(){
+			if(this._currentMode <= 2){
 		   	this._currentMode++;
+		   } else {}
 		}
 		previousMode(){	
+			if(this._currentMode >=0){
 			this._currentMode--;
+			} else {}
 		}
 		
 		coldMode(){
