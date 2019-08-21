@@ -55,7 +55,7 @@ var f = new Blinds(99);
 /*Класс airConditioner(states)
    состояние
       _status: Boolean
-      _states: ["String"];
+      _mode: ["String"];
       currentState: Number;
       
    поведение
@@ -63,12 +63,12 @@ var f = new Blinds(99);
       on(): void
       off(): void
 
-      coldState(): void
-      warmState(): void
-      turboState(): void
-      nextState(): void
-      previousState(): void
-      getState()
+      coldMode(): void
+      warmMode(): void
+      turboMode(): void
+      nextMode(): void
+      previousMode(): void
+      getmodes()
 */
 
 
