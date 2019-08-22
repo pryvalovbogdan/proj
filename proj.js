@@ -41,16 +41,17 @@ class Similiar {
 
 function Blinds(name, sunLight){
 	Similiar.constructor.call(this, name);
-	this._status = "close";
+	this._status = "closed blinds";
 	this._sunLight = sunLight;
+	this._name = name;
 	}
 Blinds.prototype = Object.create(Similiar.prototype);
 Blinds.prototype.constructor = Blinds;
 Blinds.prototype.on = function(){
-	this._status = "open";
+	this._status = "opened blinds";
 }
 Blinds.prototype.off = function(){
-	this._status = "close";
+	this._status = "closed blinds";
 }
 Blinds.prototype.getstatus = function() {
 	return this._status.substring(2);
