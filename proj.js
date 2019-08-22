@@ -1,3 +1,26 @@
+class Similiar {
+	constructor(name){
+		this._status = false;
+		this._name = name;
+	}
+	get name() {
+      return this._name;
+   	}
+   	set name(name) {
+      this._name = name;
+	}
+	on(){
+			this._status = true;
+	}
+	off(){
+			this._status = false;
+	}
+	get status(){
+			return this._status ? "On" : "Off";
+	}
+
+
+}
 
 /*Класс blinds(жалюзи)
    состояние
@@ -16,21 +39,22 @@
       
 */
 
-function Blinds(sunLight){
-	this._status = false;
+function Blinds(name, sunLight){
+	Similiar.constructor.call(this, name);
+	this._status = "close";
 	this._sunLight = sunLight;
 	}
-Blinds.prototype.open = function() {
-	this._status = true;
+Blinds.prototype = Object.create(Similiar.prototype);
+Blinds.prototype.constructor = Blinds;
+Blinds.prototype.on = function(){
+	this._status = "open";
 }
-
-Blinds.prototype.close = function() {
-	this._status = false;
+Blinds.prototype.off = function(){
+	this._status = "close";
 }
-Blinds.prototype.getStatus = function() {
-	return this._status ? "Opened Blinds" : "Closed Blinds";
+Blinds.prototype.getstatus = function() {
+	return this._status.substring(2);
 }
-
 Blinds.prototype.moreSunLight = function(sunLight){
 	if(this._sunLight < 95 ) {
 	this._sunLight += 5;
@@ -50,7 +74,7 @@ Blinds.prototype.setSunLight = function(sunLight){
 Blinds.prototype.getSunLight = function(){
 	return this._sunLight + "%";
 }
-var f = new Blinds(99);
+var f = new Blinds("blinds1", 99);
 
 /*Класс airConditioner(states)
    состояние
@@ -73,21 +97,12 @@ var f = new Blinds(99);
 
 
 
-class AirConditioner {
-		constructor() {
+class AirConditioner extends Similiar{
+		constructor(name) {
+			super(name);
 			this._mode = ["coldMode", "warmMode", "turboMode"];
 			this._status = false;
 			this._currentMode = 0;
-		}
-		on(){
-			this._status = true;
-		}
-		off(){
-			this._status = false;
-		}
-
-		get status(){
-			return this._status ? "On" : "Off";
 		}
 		nextMode(){
 			if(this._currentMode < 2){
@@ -115,6 +130,10 @@ class AirConditioner {
 		}
 }
 
-let p = new AirConditioner()
+let p = new AirConditioner("cond1")
+
+
+
+
 
 
