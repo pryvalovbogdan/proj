@@ -38,45 +38,34 @@ class Similiar {
       getSunLight(): Number
       
 */
+class Blinds extends Similiar{
+	constructor(name, sunLight){
+		super(name);
+		this._status = false;
+		this._sunLight = sunLight;
 
-function Blinds(name, sunLight){
-	Similiar.constructor.call(this, name);
-	this._status = "closed blinds";
-	this._sunLight = sunLight;
-	this._name = name;
 	}
-Blinds.prototype = Object.create(Similiar.prototype);
-Blinds.prototype.constructor = Blinds;
-Blinds.prototype.on = function(){
-	this._status = "opened blinds";
-}
-Blinds.prototype.off = function(){
-	this._status = "closed blinds";
-}
-Blinds.prototype.getstatus = function() {
-	return this._status.substring(2);
-}
-Blinds.prototype.moreSunLight = function(sunLight){
-	if(this._sunLight < 95 ) {
-	this._sunLight += 5;
-} 
-}
-Blinds.prototype.lessSunLight = function(sunLight){
-	if(this._sunLight > 5) {
-	this._sunLight -= 5;
-} 
-}
-Blinds.prototype.setSunLight = function(sunLight){
-	if(!isNaN(sunLight)&& typeof sunLight == "number" && sunLight >= 0 && sunLight <= 100){
+	moreSunLight(){
+		if(this._sunLight < 95){
+			this._sunLight += 5;
+		}
+	}
+	lessSunLight(){
+		if(this._sunLight > 5){
+			this._sunLight -= 5;
+		}
+	}
+	set sunLight(sunLight){
+		if(!isNaN(sunLight)&& typeof sunLight == "number" && sunLight >= 0 && sunLight <= 100){
 	this._sunLight = sunLight;
-	} 
+	}
 }
+	get sunLight(){
+		return this._sunLight + "%";
+	}
 
-Blinds.prototype.getSunLight = function(){
-	return this._sunLight + "%";
 }
-var f = new Blinds("blinds1", 99);
-
+let t = new Blinds("blinds1", 95)
 /*Класс airConditioner(states)
    состояние
       _status: Boolean
