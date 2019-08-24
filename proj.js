@@ -41,7 +41,6 @@ class Similiar {
 class Blinds extends Similiar{
 	constructor(name, sunLight){
 		super(name);
-		this._status = false;
 		this._sunLight = sunLight;
 
 	}
@@ -91,7 +90,6 @@ class AirConditioner extends Similiar{
 		constructor(name) {
 			super(name);
 			this._mode = ["coldMode", "warmMode", "turboMode"];
-			this._status = false;
 			this._currentMode = 0;
 		}
 		nextMode(){
@@ -123,7 +121,77 @@ class AirConditioner extends Similiar{
 let p = new AirConditioner("cond1")
 
 
+/*class Home
+   state
+      _address: string
+      _devices: []
+   behaviour
+      getAddress(): string
+      setAddress(string): void
+      
+      addDevice(device): void
+      getDeviceByName(string): device
+      getAllDevices(): [device]
+      deleteDeviceByName(string): void
+*/
 
+class Home {
+	constructor(address){
+		this._address = address;
+		this._devices = [];
+		
+	}
+	set address(address){
+		this._address = address;
+	}
+	get address(){
+		return this._address;
+	}
+
+	addDevice(device){
+		this._devices.push(device);
+	}
+	getDeviceByName(name){
+		 this._devices.forEach(function(element){
+				if(element.name == name){
+				console.log(element)	
+			}
+		} )
+			
+			
+	}
+	get allDevices(){
+		return this._devices;
+	}
+	deleteDeviceByName(name){
+		this._devices.filter(function(element){
+			return element != name;
+		})
+	}
+
+}
+
+let z = new Home("some")
+
+
+/*getDeviceByName(name){
+			this._devices.forEach(function(element, name){
+			if(element.name == name){
+				return this._devices[element];
+				
+			}
+		} )
+
+
+		getDeviceByName(name){
+		 this._devices.forEach(function(element){
+			
+				console.log (element.name + name);
+				
+			
+		} )
+			
+		*/
 
 
 
