@@ -154,19 +154,17 @@ class Home {
 	getDeviceByName(name){
 		 this._devices.forEach(function(element){
 				if(element.name == name){
-				console.log(element)	
+				console.log(element);	
 			}
-		} )
-			
-			
+		});		
 	}
 	get allDevices(){
 		return this._devices;
 	}
 	deleteDeviceByName(name){
 		this._devices.filter(function(element){
-			return element != name;
-		})
+			return element.name != name;
+		});
 	}
 
 }
