@@ -174,24 +174,5 @@ class Home {
 let z = new Home("some")
 
 
-/*getDeviceByName(name){
-			this._devices.forEach(function(element, name){
-			if(element.name == name){
-				return this._devices[element];
-				
-			}
-		} )
-
-
-		getDeviceByName(name){
-		 this._devices.forEach(function(element){
-			
-				console.log (element.name + name);
-				
-			
-		} )
-			
-		*/
-
 
 
