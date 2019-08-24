@@ -152,21 +152,22 @@ class Home {
 		this._devices.push(device);
 	}
 	getDeviceByName(name){
+		let result = null;
 		 this._devices.forEach(function(element){
 				if(element.name == name){
-				console.log(element);	
+				result = element;	
 			}
-		});		
+		});	
+		return result;	
 	}
 	get allDevices(){
 		return this._devices;
 	}
 	deleteDeviceByName(name){
-		this._devices.filter(function(element){
+	this._devices = this._devices.filter(function(element){
 			return element.name != name;
 		});
 	}
-
 }
 
 let z = new Home("some")
