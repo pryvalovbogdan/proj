@@ -164,9 +164,15 @@ class Home {
 		return this._devices;
 	}
 	deleteDeviceByName(name){
-	this._devices = this._devices.filter(function(element){
+		this._devices = this._devices.filter(function(element){
 			return element.name != name;
 		});
+	}
+	deleteDeviceByNameIndex(name){
+		let index = this._devices.indexOf(name.name);
+		if (index !== -1) {
+			this._devices.splice(index, 1)
+		};
 	}
 }
 
