@@ -153,7 +153,11 @@ class Home {
 	}
 	getDeviceByName(name){
 		let result = null;
-		 this._devices.forEach((element) =>(element.name == name) ? result = element : result = null);	
+		 this._devices.forEach((element) => {
+		 	if(element.name == name) { 
+		 		result = element; 
+		 	}
+		 });	
 		return result;	
 	}
 	get allDevices(){
