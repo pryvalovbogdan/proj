@@ -153,7 +153,7 @@ class Home {
 	}
 	getDeviceByName(name){
 		let result = null;
-		 this._devices.forEach(function(element){
+		 this._devices.forEach((element) => {
 				if(element.name == name){
 				result = element;	
 			}
@@ -164,11 +164,11 @@ class Home {
 		return this._devices;
 	}
 	deleteDeviceByName(name){
-		this._devices = this._devices.filter(function(element){
+		this._devices = this._devices.filter((element) =>{
 			return element.name != name;
 		});
 	}
-	deleteDeviceByNameIndex(name){
+		deleteDeviceByNameIndex(name){
 		let index = this._devices.indexOf(name.name);
 		if (index !== -1) {
 			this._devices.splice(index, 1)
@@ -177,6 +177,21 @@ class Home {
 }
 
 let z = new Home("some")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
