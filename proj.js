@@ -168,7 +168,8 @@ class Home {
 	}
 		deleteDeviceByNameIndex(name){
 		let index = this._devices.indexOf(name.name);
-		if (index !== -1) {
+		console.log(index)
+		if (index == -1) {
 			this._devices.splice(index, 1)
 		};
 	}
